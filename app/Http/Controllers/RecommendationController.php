@@ -38,7 +38,7 @@ class RecommendationController extends Controller
         $travelerType = $validated['traveler_type'] ?? null;
 
         // Get recommended trips
-        $recommendedTrips = $this->ahpService->getRecommendedTrips(
+        $recommendedTrips = $this->ahpService->getRecommendations(
             $budget,
             $durationDays,
             $travelerType

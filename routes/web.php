@@ -10,8 +10,8 @@ Route::get('/', function () {
 });
 
 // Recommendation routes
-Route::get('/recommend', [RecommendationController::class, 'showForm']);
-Route::post('/recommend', [RecommendationController::class, 'calculate']);
+Route::get('/recommend', [RecommendationController::class, 'showForm'])->name('recommend.form');
+Route::post('/recommend', [RecommendationController::class, 'calculate'])->name('recommend.calculate');
 
 // Trip routes
 Route::get('/trips/{id}', [TripController::class, 'show']);
