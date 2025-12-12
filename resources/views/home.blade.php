@@ -9,20 +9,26 @@
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600,700" rel="stylesheet" />
     
-    <!-- Styles / Scripts -->
-    @if (file_exists(public_path('build/manifest.json')) || file_exists(public_path('hot')))
-        @vite(['resources/css/app.css', 'resources/js/app.js'])
-    @else
-        <style>
-            /*! tailwindcss v4.0.7 | MIT License | https://tailwindcss.com */
-            :root {
-                --color-primary: #3465B8;
-                --color-primary-dark: #213E8A;
-                --color-secondary: #63B2FF;
-                --color-white: #FFFFFF;
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#3465B8',
+                        'primary-dark': '#213E8A',
+                        secondary: '#63B2FF',
+                    }
+                }
             }
-        </style>
-    @endif
+        }
+    </script>
 </head>
 <body class="bg-white text-gray-900">
     <!-- Header Navigation -->
@@ -31,7 +37,7 @@
             <div class="flex justify-between items-center">
                 <!-- Logo -->
                 <div class="text-2xl font-bold text-[#3465B8]">
-                    Trevio
+                    <a href="/" class="hover:text-[#213E8A] transition-colors duration-200">Trevio</a>
                 </div>
                 
                 <!-- Navigation Menu -->
@@ -39,7 +45,7 @@
                     <a href="#" class="text-[#3465B8] font-medium hover:text-[#213E8A] transition-colors">Home</a>
                     <a href="#" class="text-gray-700 hover:text-[#3465B8] transition-colors">Pesan Paket Wisata</a>
                     <a href="#" class="text-gray-700 hover:text-[#3465B8] transition-colors">Pesanan Kamu</a>
-                    <a href="#" class="text-gray-700 hover:text-[#3465B8] transition-colors">Tentang Kami</a>
+                    <a href="/about" class="text-gray-700 hover:text-[#3465B8] transition-colors">Tentang Kami</a>
                     <a href="#" class="text-gray-700 hover:text-[#3465B8] transition-colors">Profil</a>
                 </div>
                 
@@ -57,7 +63,7 @@
                     <a href="#" class="text-[#3465B8] font-medium hover:text-[#213E8A] transition-colors">Home</a>
                     <a href="#" class="text-gray-700 hover:text-[#3465B8] transition-colors">Pesan Paket Wisata</a>
                     <a href="#" class="text-gray-700 hover:text-[#3465B8] transition-colors">Pesanan Kamu</a>
-                    <a href="#" class="text-gray-700 hover:text-[#3465B8] transition-colors">Tentang Kami</a>
+                    <a href="/about" class="text-gray-700 hover:text-[#3465B8] transition-colors">Tentang Kami</a>
                     <a href="#" class="text-gray-700 hover:text-[#3465B8] transition-colors">Profil</a>
                 </div>
             </div>
@@ -330,60 +336,62 @@
     </main>
 
     <!-- Footer -->
-    <footer class="bg-gray-900 text-white py-12">
+    <footer class="bg-gray-900 text-white py-16">
         <div class="container mx-auto px-4">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-                <!-- Brand -->
+            <div class="grid md:grid-cols-4 gap-8 mb-12">
+                <!-- Logo Section -->
                 <div>
-                    <h3 class="text-2xl font-bold mb-4">Trevio</h3>
-                    <p class="text-gray-400">Platform travel terpercaya untuk semua kebutuhan perjalanan Anda.</p>
+                    <h3 class="text-2xl font-bold text-white mb-6">Trevio</h3>
                 </div>
                 
                 <!-- Tentang Trevio -->
                 <div>
-                    <h4 class="text-lg font-semibold mb-4">Tentang Trevio</h4>
-                    <ul class="space-y-2">
-                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Tentang Kami</a></li>
+                    <h4 class="text-sm font-semibold text-gray-300 uppercase tracking-wider mb-4">Tentang Trevio</h4>
+                    <ul class="space-y-3">
+                        <li><a href="/about" class="text-gray-400 hover:text-white transition-colors duration-200">Tentang Kami</a></li>
                     </ul>
                 </div>
                 
                 <!-- Layanan Kami -->
                 <div>
-                    <h4 class="text-lg font-semibold mb-4">Layanan Kami</h4>
-                    <ul class="space-y-2">
-                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Paket Perjalanan</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Hotel</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Villa dan Apartemen</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Pesawat</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Kereta Api</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Sewa Mobil dan Motor</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Bus</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Tempat Wisata</a></li>
+                    <h4 class="text-sm font-semibold text-gray-300 uppercase tracking-wider mb-4">Layanan Kami</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-200">Paket Perjalanan</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-200">Hotel</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-200">Villa dan Apartemen</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-200">Pesawat</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-200">Kereta Api</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-200">Sewa Mobil dan Motor</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-200">Bus</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-200">Tempat Wisata</a></li>
                     </ul>
                 </div>
                 
                 <!-- Ikuti Kami -->
                 <div>
-                    <h4 class="text-lg font-semibold mb-4">Ikuti Kami</h4>
-                    <div class="space-y-3">
-                        <a href="#" class="flex items-center text-gray-400 hover:text-white transition-colors">
-                            <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zM5.838 12a6.162 6.162 0 1112.324 0 6.162 6.162 0 01-12.324 0zM12 16a4 4 0 110-8 4 4 0 010 8zm4.965-10.405a1.44 1.44 0 112.881.001 1.44 1.44 0 01-2.881-.001z"/>
-                            </svg>
-                            @travio.id
-                        </a>
-                        <a href="#" class="flex items-center text-gray-400 hover:text-white transition-colors">
-                            <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
-                            </svg>
-                            @travio_id
-                        </a>
-                    </div>
+                    <h4 class="text-sm font-semibold text-gray-300 uppercase tracking-wider mb-4">Ikuti Kami</h4>
+                    <ul class="space-y-3">
+                        <li>
+                            <a href="#" class="flex items-center text-gray-400 hover:text-white transition-colors duration-200">
+                                <i class="fab fa-tiktok mr-3 text-lg"></i>
+                                @trevio.id
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="flex items-center text-gray-400 hover:text-white transition-colors duration-200">
+                                <i class="fab fa-instagram mr-3 text-lg"></i>
+                                @trevio_id
+                            </a>
+                        </li>
+                    </ul>
                 </div>
             </div>
             
-            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-                <p>&copy; 2024 Trevio. All rights reserved.</p>
+            <!-- Bottom Footer -->
+            <div class="border-t border-gray-800 pt-8">
+                <div class="text-center text-gray-400">
+                    <p>&copy; 2024 Trevio. Semua hak dilindungi undang-undang.</p>
+                </div>
             </div>
         </div>
     </footer>
